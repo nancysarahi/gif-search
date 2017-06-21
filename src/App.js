@@ -21,12 +21,15 @@ export default class App extends Component {
 
 // query will be passed in the literal as the user searches for something
 // I am limiting the amount of gifs to 9
+// fetching the giphy API with their beta key found on their documentation
+
 searchGif = (query) => {
 fetch(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=09&apikey=dc6zaTOxFJmzC`)
   .then(response => response.json())
   .then(responseData => {
     this.setState({ gifs: responseData.data });
       })
+    // include a catch in case the fetch does not work, it will display this message error
     .catch(error => {
       console.log('Error fetching data!', error);
     });
