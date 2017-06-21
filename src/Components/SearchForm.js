@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 export default class SearchForm extends Component {
 
+
   state = {
+    // searchText is empty string that will take any imput by the user
     searchText: ''
   }
 

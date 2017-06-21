@@ -1,3 +1,6 @@
+// imports other js files where other parts of code is found
+// such as GifList and SearchForm, css stylesheet as well
+
 import React, { Component } from 'react';
 import './App.css';
 import SearchForm from './Components/SearchForm';
@@ -7,6 +10,7 @@ export default class App extends Component {
 
   constructor() {
     super();
+  // Gifs is determined as en empty array to pulls the various gifs on the search
     this.state = {
       gifs: []
     };
@@ -15,6 +19,8 @@ export default class App extends Component {
   componentDidMount() {
   }
 
+// query will be passed in the literal as the user searches for something
+// I am limiting the amount of gifs to 9
 searchGif = (query) => {
 fetch(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=09&apikey=dc6zaTOxFJmzC`)
   .then(response => response.json())
